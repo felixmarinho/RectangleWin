@@ -130,7 +130,7 @@ func main() {
 		showMessageBox(msg)
 	}
 
-	exitCh := make(chan os.Signal)
+	exitCh := make(chan os.Signal, 1)
 	signal.Notify(exitCh, os.Interrupt)
 	go func() {
 		<-exitCh
